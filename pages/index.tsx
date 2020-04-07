@@ -1,10 +1,16 @@
 import { NextPage } from 'next'
-import styled from 'styled-components'
+import Layout from '../components/global/Layout'
 
-const Heading = styled.h1`
-  color: ${({ theme }) => theme.colors.secondary};
-`
-
-const Home: NextPage = () => <Heading>Hello world!</Heading>
+const Home: NextPage = () => (
+  <Layout>
+    <h1>Hello world!</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, magni
+      nostrum? Quos omnis perspiciatis blanditiis fuga numquam soluta
+      praesentium, eligendi quia quo neque laudantium quis rerum officiis itaque
+      eveniet odio.
+    </p>
+  </Layout>
+)
 
 export default Home

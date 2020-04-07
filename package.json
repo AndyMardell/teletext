@@ -12,6 +12,7 @@
   "author": "Andy Mardell",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.24.0",
     "next": "^9.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

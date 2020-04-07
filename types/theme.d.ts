@@ -2,9 +2,17 @@ import 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    font: {
+      family: {
+        body: string
+        heading: string
+      }
+    }
     colors: {
-      main: string
+      background: string
+      primary: string
       secondary: string
+      yellow: string
     }
   }
 }
