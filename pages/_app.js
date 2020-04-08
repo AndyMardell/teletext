@@ -13,6 +13,7 @@ export default class MyApp extends App {
         <GoogleFonts
           fonts={[
             ['Press Start 2P', '400'],
+            ['Teko', '300,400'],
             ['Ubuntu Mono', '400,700'],
           ]}
         />

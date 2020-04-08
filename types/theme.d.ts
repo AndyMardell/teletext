@@ -6,13 +6,14 @@ declare module 'styled-components' {
       family: {
         body: string
         heading: string
+        subheading: string
+      }
+      size: {
+        massive: string
+        large: string
+        regular: string
       }
     }
-    colors: {
-      background: string
-      primary: string
-      secondary: string
-      yellow: string
-    }
+    colors: any
   }
 }

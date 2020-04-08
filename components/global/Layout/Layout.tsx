@@ -10,7 +10,7 @@ const Layout: FunctionComponent = ({ children }) => (
 )
 
 const Wrapper = styled.div`
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 `
 
