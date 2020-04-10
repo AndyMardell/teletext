@@ -30,7 +30,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: ${({ theme }) => theme.font.family.body};
-    font-size:  ${({ theme }) => theme.font.size.regular};
+    font-size:  ${({ theme }) =>
+      `calc(${theme.font.size.base.min}px + (${theme.font.size.base.max} - ${theme.font.size.base.min}) * ((100vw - 300px) / (1600 - 300)))`};
+    line-height: ${({ theme }) => theme.font.lineHeight};
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.primary};
     letter-spacing: 0.1em;
@@ -39,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5,
   .h1, .h2, .h3, .h4, .h5 {
     font-family: ${({ theme }) => theme.font.family.heading};
+    line-height: 1;
   }
 
   a {

@@ -8,10 +8,14 @@ declare module 'styled-components' {
         heading: string
         subheading: string
       }
+      lineHeight: number
       size: {
+        base: {
+          min: string
+          max: string
+        }
         massive: string
         large: string
-        regular: string
       }
     }
     colors: any

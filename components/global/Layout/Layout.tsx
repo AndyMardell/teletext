@@ -1,9 +1,11 @@
 import { FunctionComponent } from 'react'
 import Header from '../Header'
 import styled from 'styled-components'
+import { GlobalStyle } from '../../../style'
 
 const Layout: FunctionComponent = ({ children }) => (
   <Wrapper>
+    <GlobalStyle />
     <Header />
     {children}
   </Wrapper>

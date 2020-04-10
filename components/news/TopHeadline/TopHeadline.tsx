@@ -47,6 +47,7 @@ const Heading = styled.div`
   font-weight: 300;
   letter-spacing: -0.025em;
   text-transform: uppercase;
+  line-height: 1;
 
   a {
     display: flex;

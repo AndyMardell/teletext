@@ -7,10 +7,14 @@ const theme: DefaultTheme = {
       heading: "'teletekst', Courier, Monaco, monospace",
       subheading: "'shpinscher', Courier, Monaco, monospace"
     },
+    lineHeight: 1.5,
     size: {
+      base: {
+        min: '16',
+        max: '25'
+      },
       massive: '7em',
-      large: '2.2em',
-      regular: '25px'
+      large: '2.2em'
     }
   },
   colors: {
