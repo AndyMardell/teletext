@@ -12,6 +12,7 @@ const Layout: FunctionComponent = ({ children }) => (
 const Wrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0.5rem;
 `
 
 export default Layout

@@ -16,6 +16,7 @@ const Header: FunctionComponent = () => {
 
 const Hero = styled.div`
   display: flex;
+  flex-wrap: wrap;
   margin: 1rem 0 2rem;
   line-height: 0.8;
 `
@@ -26,6 +27,7 @@ const Logo = styled.div`
   background: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.background};
   padding: 2rem 2rem 0;
+  flex-grow: 1;
 `
 
 const Heading = styled.div`

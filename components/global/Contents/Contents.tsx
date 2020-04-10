@@ -21,7 +21,7 @@ const contentItems: ContentItem[] = [
   { title: 'Travel', number: 430 },
   { title: 'TV Links', number: 615 },
   { title: 'TV Listings', number: 600 },
-  { title: 'Weather', number: 400 },
+  { title: 'Weather', number: 400 }
 ]
 
 export interface ContentItem {
@@ -44,12 +44,16 @@ const Contents: FunctionComponent = () => (
 
 const ItemWrapper = styled.ul`
   list-style: none;
-  padding: 0;
+  padding: 1em 0;
   display: grid;
   grid-auto-flow: column;
   grid-gap: 0.5rem 2rem;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(10, auto);
+
+  @media only screen and (max-width: 750px) {
+    display: block;
+  }
 `
 
 const Item = styled.li`
