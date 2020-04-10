@@ -1,7 +1,6 @@
 {
   "build": {
     "env": {
-      "NEWS_API_KEY": "@news-api-key",
       "BING_API_KEY": "@bing-api-key"
     }
   }
