@@ -6,24 +6,24 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-family: 'modeseven';
-    src: url('fonts/modeseven-l3n5-webfont.woff2') format('woff2'),
-        url('fonts/modeseven-l3n5-webfont.woff') format('woff');
+    src: url('/fonts/modeseven-l3n5-webfont.woff2') format('woff2'),
+        url('/fonts/modeseven-l3n5-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'teletekst';
-    src: url('fonts/teletekst-8ex0-webfont.woff2') format('woff2'),
-        url('fonts/teletekst-8ex0-webfont.woff') format('woff');
+    src: url('/fonts/teletekst-8ex0-webfont.woff2') format('woff2'),
+        url('/fonts/teletekst-8ex0-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
  
   @font-face {
     font-family: 'shpinscher';
-    src: url('fonts/shpinscher-regular-webfont.woff2') format('woff2'),
-         url('fonts/shpinscher-regular-webfont.woff') format('woff');
+    src: url('/fonts/shpinscher-regular-webfont.woff2') format('woff2'),
+         url('/fonts/shpinscher-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }

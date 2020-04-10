@@ -13,8 +13,8 @@ const top = async (req: NextApiRequest, res: NextApiResponse) => {
         sources: sources || 'bbc-news',
         q,
         pageSize,
-        page,
-      },
+        page
+      }
     })
     const data = await newsRes.data
 

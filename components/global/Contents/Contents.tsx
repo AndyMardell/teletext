@@ -33,7 +33,7 @@ const Contents: FunctionComponent = () => (
   <nav>
     <ItemWrapper>
       {contentItems.map((item: ContentItem, i: number) => (
-        <Item>
+        <Item key={i}>
           <Title>{item.title}</Title>
           <div>{item.number}</div>
         </Item>

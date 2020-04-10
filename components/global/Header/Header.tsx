@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FunctionComponent } from 'react'
 import Topbar from './Topbar'
 import styled from 'styled-components'
@@ -7,7 +8,11 @@ const Header: FunctionComponent = () => {
     <div>
       <Topbar />
       <Hero>
-        <Logo>BBC</Logo>
+        <Logo>
+          <Link href='/'>
+            <a>BBC</a>
+          </Link>
+        </Logo>
         <Heading>Ceefax</Heading>
       </Hero>
     </div>

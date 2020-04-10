@@ -1,17 +1,19 @@
 import { FunctionComponent } from 'react'
 
 export interface ArticleProps {
-  source: object
-  author: string
-  title: string
-  description: string
+  name: string
   url: string
-  urlToImage: string
-  publishedAt: string
-  content: string
+  image: {
+    url: string
+  }
+  description: string
+  datePublished: string
+  category: string
+  headline: boolean
+  ampUrl: string
 }
 
-const Article: FunctionComponent<ArticleProps> = (article) => {
+const Article: FunctionComponent<ArticleProps> = article => {
   return <div></div>
 }
 

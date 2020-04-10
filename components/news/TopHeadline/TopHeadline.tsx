@@ -7,8 +7,7 @@ import { ArticleProps } from '../Article/Article'
 
 const TopHeadline: FunctionComponent = () => {
   const [articles] = useNews({
-    slug: 'top',
-    pageSize: 1
+    limit: 1
   })
 
   return (
@@ -18,12 +17,12 @@ const TopHeadline: FunctionComponent = () => {
           <Category>News</Category>
           <Heading>
             <Link
-              href={`/news/${slugify(article.title, {
+              href={`/news/${slugify(article.name, {
                 strict: true
               })}`}
             >
               <a>
-                <span>{article.title}</span> <Number>301</Number>
+                <span>{article.name}</span> <Number>301</Number>
               </a>
             </Link>
           </Heading>

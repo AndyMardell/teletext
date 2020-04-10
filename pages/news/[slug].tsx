@@ -10,6 +10,7 @@ const Single: NextPage = () => {
 
   const [articles] = useNews({
     slug: query.slug,
+    limit: 1
   })
 
   return (
@@ -17,7 +18,8 @@ const Single: NextPage = () => {
       {articles.map((article: ArticleProps) => (
         <div>
           <Category>News</Category>
-          <Heading>{article.title}</Heading>
+          <Heading>{article.name}</Heading>
+          <div>{article.description}</div>
         </div>
       ))}
     </Layout>
@@ -34,6 +36,7 @@ const Heading = styled.div`
   font-weight: 300;
   letter-spacing: -0.025em;
   text-transform: uppercase;
+  margin-bottom: 1rem;
 `
 
 export default Single

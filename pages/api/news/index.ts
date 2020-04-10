@@ -1,33 +1,22 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import Axios from 'axios'
 
-const Single = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { slug } = req.query
-
+const News = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const newsRes = await Axios(`${process.env.BING_API}/news/search`, {
       headers: {
         'Ocp-Apim-Subscription-Key': process.env.BING_API_KEY
       },
       params: {
-        q: encodeURI(
-          slug
-            .toString()
-            .split('-')
-            .join(' ')
-        )
+        q: req.query.q
       }
     })
     const { value: articles } = await newsRes.data
 
-    if (articles.length) {
-      return res.status(200).json(articles[0])
-    }
-
-    res.status(404)
+    res.status(200).json(articles)
   } catch (err) {
     res.status(500).json({ statusCode: 500, message: err.message })
   }
 }
 
-export default Single
+export default News

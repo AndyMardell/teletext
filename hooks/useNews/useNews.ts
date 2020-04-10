@@ -1,60 +1,33 @@
 import { useEffect, useState } from 'react'
 import Axios from 'axios'
 
-import isSingle from './isSingle'
-
 export interface useNewsProps {
-  slug: string | string[]
-  country?: string
-  category?: string
-  sources?: string
+  slug?: string | string[]
   q?: string
-  qInTitle?: string
-  pageSize?: number
-  page?: number
+  limit?: number
 }
 
-const useNews = (props: useNewsProps) => {
-  const {
-    slug,
-    country,
-    category,
-    sources,
-    q,
-    qInTitle,
-    pageSize,
-    page,
-  } = props
+const useNews = (props: useNewsProps = {}) => {
+  const { slug, q, limit } = props
 
   const [articles, setArticles] = useState([])
 
   const newsApiCall = async () => {
-    const endpoint = slug.toString()
-
     try {
-      const res = await Axios(`/api/news/${endpoint}`, {
-        params: {
-          country,
-          category,
-          sources,
-          q,
-          pageSize,
-          page,
-          qInTitle: isSingle(endpoint) ? endpoint : qInTitle,
-        },
+      const res = await Axios(`/api/news${slug ? `/${slug.toString()}` : ''}`, {
+        params: { q }
       })
       const fetchedArticles = await res.data
-      setArticles(fetchedArticles.articles)
+
+      setArticles(limit ? fetchedArticles.slice(0, limit) : fetchedArticles)
     } catch (err) {
       console.log(err)
     }
   }
 
   useEffect(() => {
-    if (slug) {
-      newsApiCall()
-    }
-  }, [slug])
+    newsApiCall()
+  }, [])
 
   return [articles]
 }
