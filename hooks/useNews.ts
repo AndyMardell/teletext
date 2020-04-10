@@ -6,17 +6,18 @@ export interface useNewsProps {
   q?: string
   limit?: number
   count?: number
+  category?: string
 }
 
 const useNews = (props: useNewsProps = {}) => {
-  const { slug, q, limit, count } = props
+  const { slug, q, limit, count, category } = props
 
   const [articles, setArticles] = useState([])
 
   const newsApiCall = async () => {
     try {
       const res = await Axios(`/api/news${slug ? `/${slug.toString()}` : ''}`, {
-        params: { q, count }
+        params: { q, count, category }
       })
       const fetchedArticles = await res.data
 
@@ -28,7 +29,7 @@ const useNews = (props: useNewsProps = {}) => {
 
   useEffect(() => {
     newsApiCall()
-  }, [slug])
+  }, [slug, category])
 
   return [articles]
 }
