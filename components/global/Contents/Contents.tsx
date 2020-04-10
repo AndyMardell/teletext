@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react'
 import styled from 'styled-components'
+import Item, { ContentItem } from './Item'
 
 const contentItems: ContentItem[] = [
   { title: 'BBC Info', number: 199 },
@@ -11,7 +12,7 @@ const contentItems: ContentItem[] = [
   { title: 'Games Reviews', number: 527 },
   { title: 'Horse Racing', number: 660 },
   { title: 'Lottery', number: 525 },
-  { title: 'News Headlines', number: 101 },
+  { title: 'News Headlines', number: 101, link: '/news' },
   { title: 'News for Region', number: 160 },
   { title: 'Newsround', number: 570 },
   { title: 'Radio', number: 640 },
@@ -24,19 +25,11 @@ const contentItems: ContentItem[] = [
   { title: 'Weather', number: 400 }
 ]
 
-export interface ContentItem {
-  title: string
-  number: number
-}
-
 const Contents: FunctionComponent = () => (
   <nav>
     <ItemWrapper>
       {contentItems.map((item: ContentItem, i: number) => (
-        <Item key={i}>
-          <Title>{item.title}</Title>
-          <div>{item.number}</div>
-        </Item>
+        <Item key={i} item={item} />
       ))}
     </ItemWrapper>
   </nav>
@@ -44,26 +37,16 @@ const Contents: FunctionComponent = () => (
 
 const ItemWrapper = styled.ul`
   list-style: none;
-  padding: 1em 0;
+  padding: 0;
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 0.5rem 2rem;
+  grid-gap: 0 2rem;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(10, auto);
 
   @media only screen and (max-width: 750px) {
     display: block;
   }
-`
-
-const Item = styled.li`
-  display: flex;
-  justify-content: space-between;
-  text-transform: uppercase;
-`
-
-const Title = styled.div`
-  color: ${({ theme }) => theme.colors.yellow};
 `
 
 export default Contents

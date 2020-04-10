@@ -3,6 +3,8 @@ import Layout from '../../components/global/Layout'
 import useNews from '../../hooks/useNews'
 import { ArticleProps } from '../../components/news/Article/Article'
 import styled from 'styled-components'
+import slugify from 'slugify'
+import Link from 'next/link'
 
 const News: NextPage = () => {
   const [articles] = useNews({
@@ -13,7 +15,11 @@ const News: NextPage = () => {
     <Layout>
       {articles.map((article: ArticleProps, i: number) => (
         <Article>
-          <Number>{301 + i}</Number> {article.name}
+          <Link href={`/news/${slugify(article.name, { strict: true })}`}>
+            <a>
+              <Number>{301 + i}</Number> {article.name}
+            </a>
+          </Link>
         </Article>
       ))}
     </Layout>

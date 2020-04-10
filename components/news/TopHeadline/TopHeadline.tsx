@@ -41,13 +41,8 @@ const Number = styled.span`
   margin-left: 0.5em;
 `
 
-const Heading = styled.div`
-  font-family: ${({ theme }) => theme.font.family.subheading};
-  font-size: ${({ theme }) => theme.font.size.large};
-  font-weight: 300;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
-  line-height: 1;
+const Heading = styled.h2`
+  margin-top: 0;
 
   a {
     display: flex;

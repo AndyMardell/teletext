@@ -40,8 +40,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5,
   .h1, .h2, .h3, .h4, .h5 {
-    font-family: ${({ theme }) => theme.font.family.heading};
+    font-family: ${({ theme }) => theme.font.family.subheading};
+    font-size: ${({ theme }) => theme.font.size.large};
+    text-transform: uppercase;
+    margin: 1rem 0;
     line-height: 1;
+    font-weight: 300;
+    letter-spacing: -0.025em;
   }
 
   a {

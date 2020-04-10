@@ -28,7 +28,7 @@ const useNews = (props: useNewsProps = {}) => {
 
   useEffect(() => {
     newsApiCall()
-  }, [])
+  }, [slug])
 
   return [articles]
 }
