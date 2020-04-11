@@ -6,9 +6,7 @@ import { all as contentsAll } from '../Contents/items'
 const NumberNav: FunctionComponent = () => {
   const router = useRouter()
   const { context, setContext } = useContext(Context)
-  const [tempNumbers, setTempNumbers] = useState<string[]>(
-    context.number.split('')
-  )
+  const [tempNumbers, setTempNumbers] = useState<string[]>([])
 
   const downHandler = ({ key }: KeyboardEvent) => {
     const allowed = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -41,7 +39,7 @@ const NumberNav: FunctionComponent = () => {
 
   return (
     <>
-      <div>P{tempNumbers.join('')}</div>
+      <div>P{tempNumbers.length ? tempNumbers.join('') : context.number}</div>
     </>
   )
 }
