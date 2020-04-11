@@ -9,7 +9,7 @@ import LeagueTable from '../../../components/sport/LeagueTable'
 
 const Sport: NextPage = () => {
   const [standings] = useFootball({
-    leagueId: 2
+    leagueId: 524
   })
 
   return (

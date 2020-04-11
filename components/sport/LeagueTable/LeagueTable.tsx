@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react'
 import TableRow from './TableRow'
 import styled from 'styled-components'
+import moment from 'moment'
 
 export interface Standing {
   rank: number
@@ -46,14 +47,47 @@ interface Props {
 
 const LeagueTable: FunctionComponent<Props> = ({ standings }) => (
   <Table>
-    {standings.map((standing: Standing, i) => (
-      <TableRow key={i} data={standing} />
-    ))}
+    <TableHeader>
+      <tr>
+        <td colSpan={2}>{moment().format('MMM D')}</td>
+        <td>P</td>
+        <td>W</td>
+        <td>D</td>
+        <td>L</td>
+        <td>F</td>
+        <td>A</td>
+        <td>Pts</td>
+      </tr>
+    </TableHeader>
+    <tbody>
+      {standings.map((standing: Standing, i) => (
+        <TableRow key={i} data={standing} />
+      ))}
+    </tbody>
   </Table>
 )
 
-const Table = styled.div`
+const Table = styled.table`
+  width: 100%;
   margin: 1.5rem 0;
+
+  tr:nth-child(even) {
+    color: ${({ theme }) => theme.colors.lightblue};
+  }
+
+  td {
+    padding-right: 1rem;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+`
+
+const TableHeader = styled.thead`
+  td {
+    padding-bottom: 1rem;
+  }
 `
 
 export default LeagueTable
