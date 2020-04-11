@@ -1,11 +1,14 @@
+import { useContext, useEffect } from 'react'
 import { NextPage } from 'next'
 
 import Layout from '../components/global/Layout'
+import Hotkeys from '../components/global/Hotkeys'
 import TopHeadline from '../components/news/TopHeadline'
 import Divider from '../components/global/Divider'
 import Contents from '../components/global/Contents'
 import Highlight from '../components/global/Highlight'
 import { ContentItem } from '../components/global/Contents/Item'
+import Context from '../context'
 
 const contentItems: ContentItem[] = [
   { title: 'News Headlines', number: 101, link: '/news' },
@@ -30,13 +33,26 @@ const contentItems: ContentItem[] = [
   { title: 'Weather', number: 400 }
 ]
 
-const Home: NextPage = () => (
-  <Layout>
-    <TopHeadline />
-    <Divider />
-    <Contents contentItems={contentItems} />
-    <Highlight>Ceefax: The world at your fingertips</Highlight>
-  </Layout>
-)
+const Home: NextPage = () => {
+  const { context, setContext } = useContext(Context)
+
+  console.log('Current context', context)
+
+  useEffect(() => {
+    setContext({
+      number: 200
+    })
+  }, [])
+
+  return (
+    <Layout>
+      <TopHeadline />
+      <Divider />
+      <Contents contentItems={contentItems} />
+      <Highlight>Ceefax: The world at your fingertips</Highlight>
+      <Hotkeys />
+    </Layout>
+  )
+}
 
 export default Home

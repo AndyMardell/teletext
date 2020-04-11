@@ -12,7 +12,7 @@ const News: NextPage = () => {
   })
 
   return (
-    <Layout>
+    <Layout title='Headlines'>
       {articles.map((article: ArticleProps, i: number) => (
         <Article>
           <Link href={`/news/${slugify(article.name, { strict: true })}`}>

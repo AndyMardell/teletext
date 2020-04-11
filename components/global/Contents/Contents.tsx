@@ -28,6 +28,10 @@ const ItemWrapper = styled.ul`
   @media only screen and (max-width: 750px) {
     display: block;
   }
+
+  &:hover li > div {
+    opacity: 0.2;
+  }
 `
 
 export default Contents
