@@ -4,15 +4,17 @@ import styled from 'styled-components'
 
 export interface ContentItem {
   title: string
-  number: number
   link?: string
 }
 
+export type ContentItems = Record<string, ContentItem>
+
 interface Props {
   item: ContentItem
+  number: string
 }
 
-const Item: FunctionComponent<Props> = ({ item }) => {
+const Item: FunctionComponent<Props> = ({ item, number }) => {
   if (item.link) {
     return (
       <li>
@@ -20,7 +22,7 @@ const Item: FunctionComponent<Props> = ({ item }) => {
           <a>
             <ItemContainer>
               <Title>{item.title}</Title>
-              <div>{item.number}</div>
+              <div>{number}</div>
             </ItemContainer>
           </a>
         </Link>
@@ -32,7 +34,7 @@ const Item: FunctionComponent<Props> = ({ item }) => {
     <li>
       <ItemContainer>
         <Title>{item.title}</Title>
-        <div>{item.number}</div>
+        <div>{number}</div>
       </ItemContainer>
     </li>
   )

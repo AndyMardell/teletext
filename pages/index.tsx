@@ -6,13 +6,12 @@ import TopHeadline from '../components/news/TopHeadline'
 import Divider from '../components/global/Divider'
 import Contents from '../components/global/Contents'
 import Highlight from '../components/global/Highlight'
-import { contentItems } from '../components/global/Contents/items'
 
 const Home: NextPage = () => (
   <Layout>
     <TopHeadline />
     <Divider />
-    <Contents contentItems={contentItems} />
+    <Contents />
     <Highlight>Ceefax: The world at your fingertips</Highlight>
     <Hotkeys />
   </Layout>

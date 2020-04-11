@@ -1,26 +1,32 @@
-import { ContentItem } from './Item'
+import { ContentItems } from './Item'
 
-const contentItems: ContentItem[] = [
-  { title: 'News Headlines', number: 101, link: '/news' },
-  { title: 'Sport', number: 300, link: '/sport' },
-  { title: 'BBC Info', number: 199 },
-  { title: 'Chess', number: 695 },
-  { title: 'Community BBC2', number: 568 },
-  { title: 'Entertainment', number: 650 },
-  { title: 'Film Reviews', number: 500 },
-  { title: 'Flights', number: 440 },
-  { title: 'Games Reviews', number: 527 },
-  { title: 'Horse Racing', number: 660 },
-  { title: 'Lottery', number: 525 },
-  { title: 'News for Region', number: 160 },
-  { title: 'Newsround', number: 570 },
-  { title: 'Radio', number: 640 },
-  { title: 'Subtitling', number: 888 },
-  { title: 'Top 40', number: 528 },
-  { title: 'Travel', number: 430 },
-  { title: 'TV Links', number: 615 },
-  { title: 'TV Listings', number: 600 },
-  { title: 'Weather', number: 400 }
-]
+const home: ContentItems = {
+  101: { title: 'News Headlines', link: '/news' },
+  300: { title: 'Sport', link: '/sport' },
+  199: { title: 'BBC Info' },
+  695: { title: 'Chess' },
+  568: { title: 'Community BBC2' },
+  650: { title: 'Entertainment' },
+  500: { title: 'Film Reviews' },
+  440: { title: 'Flights' },
+  527: { title: 'Games Reviews' },
+  660: { title: 'Horse Racing' },
+  525: { title: 'Lottery' },
+  160: { title: 'News for Region' },
+  570: { title: 'Newsround' },
+  640: { title: 'Radio' },
+  888: { title: 'Subtitling' },
+  528: { title: 'Top 40' },
+  430: { title: 'Travel' },
+  615: { title: 'TV Links' },
+  600: { title: 'TV Listings' },
+  400: { title: 'Weather' }
+}
 
-export { contentItems }
+const sport: ContentItems = {
+  401: { title: 'Premier League', link: '/sport/premier-league' }
+}
+
+const categories: Record<string, any> = { home, sport }
+
+export default categories

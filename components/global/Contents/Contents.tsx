@@ -1,20 +1,25 @@
 import { FunctionComponent } from 'react'
 import styled from 'styled-components'
-import Item, { ContentItem } from './Item'
+import Item from './Item'
+import contents from './items'
 
 interface Props {
-  contentItems: ContentItem[]
+  category?: string
 }
 
-const Contents: FunctionComponent<Props> = ({ contentItems }) => (
-  <nav>
-    <ItemWrapper>
-      {contentItems.map((item: ContentItem, i: number) => (
-        <Item key={i} item={item} />
-      ))}
-    </ItemWrapper>
-  </nav>
-)
+const Contents: FunctionComponent<Props> = ({ category }) => {
+  const contentItems = contents[category || 'home']
+
+  return (
+    <nav>
+      <ItemWrapper>
+        {Object.keys(contentItems).map((key, i) => (
+          <Item key={i} item={contentItems[key]} number={key} />
+        ))}
+      </ItemWrapper>
+    </nav>
+  )
+}
 
 const ItemWrapper = styled.ul`
   list-style: none;
