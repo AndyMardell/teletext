@@ -1,11 +1,11 @@
 import { createContext, useReducer, FunctionComponent } from 'react'
 
 export interface ContextInterface {
-  number: number
+  number: string
 }
 
 const defaultContext: ContextInterface = {
-  number: 100
+  number: '100'
 }
 
 export interface ContextProps {

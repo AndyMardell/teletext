@@ -1,10 +1,13 @@
 import { FunctionComponent, useContext, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Context from '../../../context'
+import { all as contentsAll } from '../Contents/items'
 
 const NumberNav: FunctionComponent = () => {
-  const { context } = useContext(Context)
+  const router = useRouter()
+  const { context, setContext } = useContext(Context)
   const [tempNumbers, setTempNumbers] = useState<string[]>(
-    context.number.toString().split('')
+    context.number.split('')
   )
 
   const downHandler = ({ key }: KeyboardEvent) => {
@@ -22,7 +25,19 @@ const NumberNav: FunctionComponent = () => {
     return () => {
       window.removeEventListener('keydown', downHandler)
     }
-  }, [])
+  }, [tempNumbers])
+
+  useEffect(() => {
+    if (tempNumbers.length === 3) {
+      const navNumber = tempNumbers.join('')
+      const navItem = contentsAll[navNumber]
+
+      if (navItem && navItem.link) {
+        setContext({ number: navNumber })
+        router.push(navItem.link)
+      }
+    }
+  }, [tempNumbers])
 
   return (
     <>

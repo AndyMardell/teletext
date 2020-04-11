@@ -1,5 +1,9 @@
 import { ContentItems } from './Item'
 
+const topLevel: ContentItems = {
+  100: { title: 'A–Z Index', link: '/' }
+}
+
 const home: ContentItems = {
   101: { title: 'News Headlines', link: '/news' },
   300: { title: 'Sport', link: '/sport' },
@@ -27,6 +31,7 @@ const sport: ContentItems = {
   401: { title: 'Premier League', link: '/sport/premier-league' }
 }
 
-const categories: Record<string, any> = { home, sport }
+const categories: Record<string, any> = { topLevel, home, sport }
 
+export const all = { ...topLevel, ...home, ...sport }
 export default categories
