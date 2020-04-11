@@ -13,7 +13,7 @@ const Sport: NextPage = () => {
   })
 
   return (
-    <Layout>
+    <Layout title='Football' color='green'>
       <Headline category='Sport'>Premier League</Headline>
       <Divider />
       <LeagueTable standings={standings} />

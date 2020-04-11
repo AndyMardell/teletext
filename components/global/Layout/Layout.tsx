@@ -3,10 +3,15 @@ import Header from '../Header'
 import styled from 'styled-components'
 import { GlobalStyle } from '../../../style'
 
-const Layout: FunctionComponent = ({ children }) => (
+interface Props {
+  title?: string
+  color?: string
+}
+
+const Layout: FunctionComponent<Props> = ({ children, title, color }) => (
   <Wrapper>
     <GlobalStyle />
-    <Header />
+    <Header title={title} color={color} />
     {children}
   </Wrapper>
 )

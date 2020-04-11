@@ -13,7 +13,7 @@ const theme: DefaultTheme = {
         min: '16',
         max: '25'
       },
-      massive: '7em',
+      massive: '5em',
       large: '2.2em'
     }
   },

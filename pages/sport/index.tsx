@@ -12,7 +12,7 @@ const contentItems: ContentItem[] = [
 ]
 
 const Sport: NextPage = () => (
-  <Layout>
+  <Layout title='Sport' color='green'>
     <TopHeadline category='Sports' />
     <Divider />
     <Contents contentItems={contentItems} />

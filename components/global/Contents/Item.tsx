@@ -17,10 +17,12 @@ const Item: FunctionComponent<Props> = ({ item }) => {
     return (
       <li>
         <Link href={item.link}>
-          <ItemContainer>
-            <Title>{item.title}</Title>
-            <div>{item.number}</div>
-          </ItemContainer>
+          <a>
+            <ItemContainer>
+              <Title>{item.title}</Title>
+              <div>{item.number}</div>
+            </ItemContainer>
+          </a>
         </Link>
       </li>
     )
