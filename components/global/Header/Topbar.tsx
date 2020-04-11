@@ -1,8 +1,12 @@
-import { FunctionComponent, useState, useEffect } from 'react'
+import { FunctionComponent, useState, useEffect, useContext } from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
 
+import Context from '../../../context'
+import NumberNav from './NumberNav'
+
 const Topbar: FunctionComponent = () => {
+  const { context } = useContext(Context)
   const [time, setTime] = useState(moment())
 
   useEffect(() => {
@@ -12,10 +16,10 @@ const Topbar: FunctionComponent = () => {
 
   return (
     <Bar>
-      <div>P100</div>
+      <NumberNav />
       <div>CEEFAX</div>
       <div>1</div>
-      <div>302</div>
+      <div>{context.number}</div>
       <div>{time.format('ddd')}</div>
       <div>{time.format('DD')}</div>
       <div>{time.format('MMM')}</div>
