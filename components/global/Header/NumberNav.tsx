@@ -33,6 +33,8 @@ const NumberNav: FunctionComponent = () => {
       if (navItem && navItem.link) {
         setContext({ number: navNumber })
         router.push(navItem.link)
+      } else {
+        setTempNumbers([])
       }
     }
   }, [tempNumbers])
