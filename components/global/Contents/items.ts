@@ -31,7 +31,16 @@ const contentItems: Record<string, ContentItems> = {
     302: { title: 'Football', link: '/sport/football' }
   },
   football: {
-    324: { title: 'Premier League', link: '/sport/football/premier-league' }
+    324: { title: 'Premier League', link: '/sport/football/league/524' },
+    325: { title: 'Championship', link: '/sport/football/league/565' },
+    326: { title: 'League One', link: '/sport/football/league/581' },
+    327: { title: 'League Two', link: '/sport/football/league/582' },
+    328: { title: 'National League', link: '/sport/football/league/764' },
+    329: { title: 'FA WSL', link: '/sport/football/league/770' },
+    330: {
+      title: 'Non League D1 - South',
+      link: '/sport/football/league/1174'
+    }
   }
 }
 

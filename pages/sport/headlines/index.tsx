@@ -19,7 +19,7 @@ const SportHeadlines: NextPage = () => {
         <Article>
           <Link href={`/news/${slugify(article.name, { strict: true })}`}>
             <a>
-              <Number>{301 + i}</Number> {article.name}
+              <Number>{303 + i}</Number> {article.name}
             </a>
           </Link>
         </Article>

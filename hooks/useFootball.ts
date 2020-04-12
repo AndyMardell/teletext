@@ -1,32 +1,69 @@
 import { useEffect, useState } from 'react'
 import Axios from 'axios'
 
+interface LeagueInfo {
+  league_id: number
+  name: string
+  type: string
+  country: string
+  country_code: string
+  season: number
+  season_start: string
+  season_end: string
+  logo: string
+  flag: string
+  standings: number
+  is_current: number
+}
+
 export interface useFootballProps {
-  leagueId?: number
+  leagueId?: string | string[]
 }
 
 const useFootball = (props: useFootballProps = {}) => {
   const { leagueId } = props
-  const [articles, setArticles] = useState([])
+  const [info, setInfo] = useState<LeagueInfo>()
+  const [standings, setStandings] = useState([])
 
-  const footballApiCall = async () => {
+  const getLeagueInfo = async () => {
     try {
-      const res = await Axios('/api/sport/football', {
-        params: { leagueId: leagueId || 2 }
+      const res = await Axios('/api/sport/football/league', {
+        params: { leagueId: leagueId ? parseInt(leagueId.toString()) : 524 }
       })
-      const standings = await res.data
+      const infoData = await res.data
 
-      setArticles(standings)
+      setInfo(infoData)
     } catch (err) {
-      console.log(err)
+      console.error(err)
+    }
+  }
+
+  const getLeagueStandings = async () => {
+    try {
+      const res = await Axios('/api/sport/football/standings', {
+        params: { leagueId: leagueId ? parseInt(leagueId.toString()) : 524 }
+      })
+      const standingsData = await res.data
+
+      setStandings(standingsData)
+    } catch (err) {
+      console.error(err)
     }
   }
 
   useEffect(() => {
-    footballApiCall()
+    if (leagueId) {
+      getLeagueInfo()
+      getLeagueStandings()
+    }
   }, [leagueId])
 
-  return [articles]
+  return [
+    {
+      info,
+      standings
+    }
+  ]
 }
 
 export default useFootball
