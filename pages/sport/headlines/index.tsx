@@ -3,12 +3,13 @@ import styled from 'styled-components'
 import slugify from 'slugify'
 import Link from 'next/link'
 
-import Layout from '../../components/global/Layout'
-import useNews from '../../hooks/useNews'
-import { ArticleProps } from '../../components/news/Article/Article'
+import Layout from '../../../components/global/Layout'
+import useNews from '../../../hooks/useNews'
+import { ArticleProps } from '../../../components/news/Article/Article'
 
-const News: NextPage = () => {
+const SportHeadlines: NextPage = () => {
   const [articles] = useNews({
+    category: 'Sports',
     count: 100
   })
 
@@ -37,4 +38,4 @@ const Article = styled.div`
   margin: 0.5rem 0;
 `
 
-export default News
+export default SportHeadlines

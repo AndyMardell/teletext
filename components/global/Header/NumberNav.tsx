@@ -1,7 +1,7 @@
 import { FunctionComponent, useContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Context from '../../../context'
-import { all as contentsAll } from '../Contents/items'
+import { contentsAll } from '../Contents/items'
 
 const NumberNav: FunctionComponent = () => {
   const router = useRouter()
