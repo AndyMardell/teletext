@@ -9,7 +9,7 @@ const contentItems: Record<string, ContentItems> = {
     300: { title: 'Sport', link: '/sport' },
     199: { title: 'BBC Info' },
     695: { title: 'Chess' },
-    568: { title: 'Community BBC2' },
+    568: { title: 'Recipes', link: '/recipes/random' },
     650: { title: 'Entertainment' },
     500: { title: 'Film Reviews' },
     440: { title: 'Flights' },

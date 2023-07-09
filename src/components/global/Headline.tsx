@@ -8,10 +8,16 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   number?: number
 }
 
-export default function Headline({ category, link, children, number }: Props) {
+export default function Headline({
+  category,
+  link,
+  children,
+  number,
+  style
+}: Props) {
   if (link) {
     return (
-      <div>
+      <div style={style}>
         {category && <Category>{category}</Category>}
         <Heading>
           <Link href={link}>
@@ -23,7 +29,7 @@ export default function Headline({ category, link, children, number }: Props) {
   }
 
   return (
-    <div>
+    <div style={style}>
       {category && <Category>{category}</Category>}
       <Heading>
         <span>{children}</span> {number && <Number>{number}</Number>}
