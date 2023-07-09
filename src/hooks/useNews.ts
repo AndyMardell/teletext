@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { getBaseUrl } from '@/lib/get-base-url'
 
 export interface useNewsProps {
   slug?: string | string[]
@@ -27,7 +26,9 @@ export default function useNews({
   const newsApiCall = async () => {
     try {
       const res = await fetch(
-        `${getBaseUrl()}/api/news${slug ? `/${slug.toString()}` : ''}?${params}`
+        `${process.env.NEXT_PUBLIC_FRONTEND_URL}/api/news${
+          slug ? `/${slug.toString()}` : ''
+        }?${params}`
       )
 
       const fetchedArticles = await res.json()

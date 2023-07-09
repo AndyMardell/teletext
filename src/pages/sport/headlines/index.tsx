@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import slugify from 'slugify'
 import Link from 'next/link'
-
 import Layout from '@/components/global/Layout'
 import useNews from '@/hooks/useNews'
 import { ArticleProps } from '@/components/news/Article'

@@ -1,13 +1,10 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import Layout from '@/components/global/Layout'
 import Hotkeys from '@/components/global/Hotkeys'
 import TopHeadline from '@/components/news/TopHeadline'
 import Divider from '@/components/global/Divider'
 import Contents from '@/components/global/Contents'
 import Highlight from '@/components/global/Highlight'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
