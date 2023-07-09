@@ -2,7 +2,7 @@ import { ContentItems } from '@/components/global/Contents/Item'
 
 const contentItems: Record<string, ContentItems> = {
   topLevel: {
-    100: { title: 'A–Z Index', link: '/' }
+    100: { title: 'A-Z Index', link: '/' }
   },
   home: {
     101: { title: 'News Headlines', link: '/news' },

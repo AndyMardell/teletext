@@ -1,4 +1,4 @@
-import TableRow from './TableRow'
+import TableRow from '@/components/sport/LeagueTable/TableRow'
 import styled from 'styled-components'
 import moment from 'moment'
 

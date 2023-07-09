@@ -1,7 +1,6 @@
 import Layout from '@/components/global/Layout'
 import Highlight from '@/components/global/Highlight'
 import Headline from '@/components/global/Headline'
-import Divider from '@/components/global/Divider'
 import useRecipe from '@/hooks/useRecipe'
 import { styled } from 'styled-components'
 

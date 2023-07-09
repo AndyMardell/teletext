@@ -1,4 +1,4 @@
-import { Standing } from '../LeagueTable'
+import { Standing } from '@/components/sport/LeagueTable'
 
 interface Props {
   data: Standing

@@ -1,7 +1,7 @@
 import slugify from 'slugify'
 import useNews from '@/hooks/useNews'
-import { ArticleProps } from './Article'
-import Headline from '../global/Headline'
+import { ArticleProps } from '@/components/news/Article'
+import Headline from '@/components/global/Headline'
 
 interface Props {
   category?: string

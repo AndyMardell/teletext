@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import slugify from 'slugify'
 import Link from 'next/link'
-
 import Layout from '@/components/global/Layout'
 import useNews from '@/hooks/useNews'
 import { ArticleProps } from '@/components/news/Article'
@@ -33,6 +32,7 @@ export default function News() {
       <Highlight
         background="yellow"
         color="blue"
+        mb
       >
         How Ceefax switches to Digital TV <b>697</b>
       </Highlight>

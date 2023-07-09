@@ -36,6 +36,7 @@ export default function SportHeadlines() {
       <Highlight
         background="yellow"
         color="blue"
+        mb
       >
         How Ceefax switches to Digital TV <b>697</b>
       </Highlight>

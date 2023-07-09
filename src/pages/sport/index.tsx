@@ -13,7 +13,7 @@ export default function Sport() {
       <TopHeadline category="Sports" />
       <Divider />
       <Contents category="sport" />
-      <Highlight>Ceefax: Sports at your fingertips</Highlight>
+      <Highlight mb>Ceefax: Sports at your fingertips</Highlight>
     </Layout>
   )
 }

@@ -26,7 +26,7 @@ export default function League() {
         </>
       )}
       <LeagueTable standings={league.standings} />
-      <Highlight>Ceefax: Sports at your fingertips</Highlight>
+      <Highlight mb>Ceefax: Sports at your fingertips</Highlight>
     </Layout>
   )
 }
