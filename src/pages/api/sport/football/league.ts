@@ -1,5 +1,19 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import Axios from 'axios'
+import { footballHeaders as headers } from '@/lib/api/headers'
+
+const getLeague = async ({ leagueId }: NextApiRequest['query']) => {
+  const footballRes = await fetch(
+    `${process.env.FOOTBALL_API}/leagues/league/${leagueId}`,
+    { headers }
+  )
+  const { api } = await footballRes.json()
+
+  if (!api.leagues.length) {
+    return null
+  }
+
+  return api.leagues[0]
+}
 
 export default async function League(
   req: NextApiRequest,
@@ -8,18 +22,13 @@ export default async function League(
   const { leagueId } = req.query
 
   try {
-    const footballRes = await Axios(
-      `${process.env.FOOTBALL_API}/leagues/league/${leagueId}`,
-      {
-        headers: {
-          'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-          'x-rapidapi-key': process.env.FOOTBALL_API_KEY
-        }
-      }
-    )
-    const { api } = await footballRes.data
+    const league = await getLeague({ leagueId })
 
-    res.status(200).json(api.leagues[0])
+    if (!league) {
+      return res.status(404).send('Not found')
+    }
+
+    return res.status(200).json(league)
   } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message })
   }

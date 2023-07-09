@@ -1,5 +1,17 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import Axios from 'axios'
+import { bingHeaders as headers } from '@/lib/api/headers'
+
+const getArticles = async ({ slug }: NextApiRequest['query']) => {
+  const params = new URLSearchParams({
+    q: slug?.toString().split('-').join(' ') || ''
+  })
+
+  const newsRes = await fetch(`${process.env.BING_API}/news/search?${params}`, {
+    headers
+  })
+  const { value: articles } = await newsRes.json()
+  return articles
+}
 
 export default async function Single(
   req: NextApiRequest,
@@ -8,23 +20,15 @@ export default async function Single(
   const { slug } = req.query
 
   try {
-    const newsRes = await Axios(`${process.env.BING_API}/news/search`, {
-      headers: {
-        'Ocp-Apim-Subscription-Key': process.env.BING_API_KEY
-      },
-      params: {
-        q: slug?.toString().split('-').join(' ')
-      }
-    })
-    const { value: articles } = await newsRes.data
+    const articles = await getArticles({ slug })
 
-    if (articles.length) {
-      return res.status(200).json(articles)
+    if (!articles) {
+      return res.status(404).send('Not found')
     }
 
-    res.status(404).send('Not found')
+    return res.status(200).json(articles)
   } catch (err: any) {
     console.error(err)
-    res.status(500).json({ statusCode: 500, message: err.message })
+    return res.status(500).json({ statusCode: 500, message: err.message })
   }
 }

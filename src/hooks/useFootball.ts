@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Axios from 'axios'
 import { getBaseUrl } from '@/lib/get-base-url'
 
 interface LeagueInfo {
@@ -21,18 +20,20 @@ export interface useFootballProps {
   leagueId?: string | string[]
 }
 
-export default function useFootball(props: useFootballProps = {}) {
-  const { leagueId } = props
+export default function useFootball({ leagueId }: useFootballProps = {}) {
   const [info, setInfo] = useState<LeagueInfo>()
   const [standings, setStandings] = useState([])
 
+  const params = new URLSearchParams({
+    leagueId: (leagueId ? parseInt(leagueId.toString()) : 524).toString()
+  })
+
   const getLeagueInfo = async () => {
     try {
-      const res = await Axios(`${getBaseUrl()}/api/sport/football/league`, {
-        params: { leagueId: leagueId ? parseInt(leagueId.toString()) : 524 }
-      })
-      const infoData = await res.data
-
+      const res = await fetch(
+        `${getBaseUrl()}/api/sport/football/league?${params}`
+      )
+      const infoData = await res.json()
       setInfo(infoData)
     } catch (err) {
       console.error(err)
@@ -41,11 +42,10 @@ export default function useFootball(props: useFootballProps = {}) {
 
   const getLeagueStandings = async () => {
     try {
-      const res = await Axios(`${getBaseUrl()}/api/sport/football/standings`, {
-        params: { leagueId: leagueId ? parseInt(leagueId.toString()) : 524 }
-      })
-      const standingsData = await res.data
-
+      const res = await fetch(
+        `${getBaseUrl()}/api/sport/football/standings?${params}`
+      )
+      const standingsData = await res.json()
       setStandings(standingsData)
     } catch (err) {
       console.error(err)

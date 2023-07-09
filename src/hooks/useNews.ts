@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import Axios from 'axios'
 import { getBaseUrl } from '@/lib/get-base-url'
 
 export interface useNewsProps {
@@ -10,21 +9,28 @@ export interface useNewsProps {
   category?: string
 }
 
-export default function useNews(props: useNewsProps = {}) {
-  const { slug, q, limit, count, category } = props
-
+export default function useNews({
+  slug,
+  q,
+  limit,
+  count,
+  category
+}: useNewsProps = {}) {
   const [articles, setArticles] = useState([])
+
+  const params = new URLSearchParams({
+    q: q?.toString() || '',
+    count: count?.toString() || '',
+    category: category?.toString() || ''
+  })
 
   const newsApiCall = async () => {
     try {
-      const res = await Axios(
-        `${getBaseUrl()}/api/news${slug ? `/${slug.toString()}` : ''}`,
-        {
-          params: { q, count, category }
-        }
+      const res = await fetch(
+        `${getBaseUrl()}/api/news${slug ? `/${slug.toString()}` : ''}?${params}`
       )
-      const fetchedArticles = await res.data
 
+      const fetchedArticles = await res.json()
       setArticles(limit ? fetchedArticles.slice(0, limit) : fetchedArticles)
     } catch (err) {
       console.log(err)
