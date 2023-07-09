@@ -1,8 +1,0 @@
-{
-  "build": {
-    "env": {
-      "BING_API_KEY": "@bing-api-key",
-      "FOOTBALL_API_KEY": "@football-api-key"
-    }
-  }
-}
