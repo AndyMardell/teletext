@@ -2,7 +2,8 @@
 
 [teletext.mardell.me](https://teletext.mardell.me/)
 
-An online teletext project by [Andy Mardell](https://mardell.me/). Most of it doesn't work yet, but it's been fun.
+An online teletext project by [Andy Mardell](https://mardell.me/). Most of it is
+still a work in progress, but it's been fun.
 
 ## Development
 
@@ -10,4 +11,4 @@ An online teletext project by [Andy Mardell](https://mardell.me/). Most of it do
 
 ## Production
 
-> Deployed to Zeit Now
+> Deployed to Vercel
