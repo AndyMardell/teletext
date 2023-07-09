@@ -17,7 +17,7 @@ const League = async (req: NextApiRequest, res: NextApiResponse) => {
     const { api } = await footballRes.data
 
     res.status(200).json(api.leagues[0])
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({ statusCode: 500, message: err.message })
   }
 }

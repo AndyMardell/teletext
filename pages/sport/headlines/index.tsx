@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import Layout from '../../../components/global/Layout'
 import useNews from '../../../hooks/useNews'
-import { ArticleProps } from '../../../components/news/Article/Article'
+import { ArticleProps } from '../../../components/news/Article'
 
 const SportHeadlines: NextPage = () => {
   const [articles] = useNews({
@@ -14,12 +14,12 @@ const SportHeadlines: NextPage = () => {
   })
 
   return (
-    <Layout title='Headlines'>
-      {articles.map((article: ArticleProps, i: number) => (
-        <Article>
+    <Layout title="Headlines">
+      {articles.map((article: ArticleProps, index: number) => (
+        <Article key={index}>
           <Link href={`/news/${slugify(article.name, { strict: true })}`}>
             <a>
-              <Number>{303 + i}</Number> {article.name}
+              <Number>{303 + index}</Number> {article.name}
             </a>
           </Link>
         </Article>

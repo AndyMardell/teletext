@@ -1,9 +1,8 @@
 import { FunctionComponent } from 'react'
-import styled from 'styled-components'
 import slugify from 'slugify'
-import useNews from '../../../hooks/useNews'
-import { ArticleProps } from '../Article/Article'
-import Headline from '../../global/Headline'
+import useNews from '../../hooks/useNews'
+import { ArticleProps } from './Article'
+import Headline from '../global/Headline'
 
 interface Props {
   category?: string
@@ -17,8 +16,9 @@ const TopHeadline: FunctionComponent<Props> = ({ category }) => {
 
   return (
     <div>
-      {articles.map((article: ArticleProps) => (
+      {articles.map((article: ArticleProps, index: number) => (
         <Headline
+          key={index}
           category={category || 'News'}
           link={`/news/${slugify(article.name, {
             strict: true

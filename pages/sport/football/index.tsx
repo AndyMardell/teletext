@@ -7,10 +7,13 @@ import Contents from '../../../components/global/Contents'
 import Highlight from '../../../components/global/Highlight'
 
 const Football: NextPage = () => (
-  <Layout title='Football' color='green'>
-    <TopHeadline category='Sports' />
+  <Layout
+    title="Football"
+    color="green"
+  >
+    <TopHeadline category="Sports" />
     <Divider />
-    <Contents category='football' />
+    <Contents category="football" />
     <Highlight>Ceefax: Football at your fingertips</Highlight>
   </Layout>
 )

@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react'
-import { Standing } from './LeagueTable'
+import { Standing } from '../LeagueTable'
 
 interface Props {
   data: Standing

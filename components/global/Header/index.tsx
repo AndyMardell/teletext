@@ -14,7 +14,7 @@ const Header: FunctionComponent<Props> = ({ title, color }) => {
       <Topbar />
       <Hero>
         <Logo>
-          <Link href='/'>
+          <Link href="/">
             <a>
               <span>B</span>
               <span>B</span>

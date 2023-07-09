@@ -61,7 +61,10 @@ const LeagueTable: FunctionComponent<Props> = ({ standings }) => (
     </TableHeader>
     <tbody>
       {standings.map((standing: Standing, i) => (
-        <TableRow key={i} data={standing} />
+        <TableRow
+          key={i}
+          data={standing}
+        />
       ))}
     </tbody>
   </Table>

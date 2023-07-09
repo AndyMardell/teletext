@@ -11,7 +11,10 @@ const Highlight: FunctionComponent<Props> = ({
   background,
   color
 }) => (
-  <Banner background={background} color={color}>
+  <Banner
+    background={background}
+    color={color}
+  >
     {children}
   </Banner>
 )

@@ -7,14 +7,11 @@ const Single = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const newsRes = await Axios(`${process.env.BING_API}/news/search`, {
       headers: {
-        'Ocp-Apim-Subscription-Key': process.env.BING_API_KEY,
+        'Ocp-Apim-Subscription-Key': process.env.BING_API_KEY
       },
       params: {
-        q: slug
-          .toString()
-          .split('-')
-          .join(' '),
-      },
+        q: slug.toString().split('-').join(' ')
+      }
     })
     const { value: articles } = await newsRes.data
 
@@ -23,7 +20,7 @@ const Single = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     res.status(404).send('Not found')
-  } catch (err) {
+  } catch (err: any) {
     console.error(err)
     res.status(500).json({ statusCode: 500, message: err.message })
   }

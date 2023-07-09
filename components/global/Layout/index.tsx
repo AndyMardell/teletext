@@ -11,7 +11,10 @@ interface Props {
 const Layout: FunctionComponent<Props> = ({ children, title, color }) => (
   <Wrapper>
     <GlobalStyle />
-    <Header title={title} color={color} />
+    <Header
+      title={title}
+      color={color}
+    />
     {children}
   </Wrapper>
 )

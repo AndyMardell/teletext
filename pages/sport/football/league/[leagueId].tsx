@@ -16,10 +16,13 @@ const League: NextPage = () => {
   })
 
   return (
-    <Layout title='Football' color='green'>
+    <Layout
+      title="Football"
+      color="green"
+    >
       {league.info && (
         <>
-          <Headline category='Sport'>{league.info.name}</Headline>
+          <Headline category="Sport">{league.info.name}</Headline>
           <Divider />
         </>
       )}

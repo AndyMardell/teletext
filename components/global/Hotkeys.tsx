@@ -10,22 +10,22 @@ const Hotkeys: FunctionComponent = () => {
     <nav>
       <StyledUl>
         <li style={{ color: colors.red }}>
-          <Link href='/news'>
+          <Link href="/news">
             <a>Headlines</a>
           </Link>
         </li>
         <li style={{ color: colors.green }}>
-          <Link href='/sport'>
+          <Link href="/sport">
             <a>Sport</a>
           </Link>
         </li>
         <li style={{ color: colors.yellow }}>
-          <Link href='/tv'>
+          <Link href="/tv">
             <a>TV Listings</a>
           </Link>
         </li>
         <li style={{ color: colors.lightblue }}>
-          <Link href='/'>
+          <Link href="/">
             <a>A–Z Index</a>
           </Link>
         </li>

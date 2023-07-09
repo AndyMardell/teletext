@@ -14,7 +14,11 @@ const Contents: FunctionComponent<Props> = ({ category }) => {
     <nav>
       <ItemWrapper>
         {Object.keys(contentItems).map((key, i) => (
-          <Item key={i} item={contentItems[key]} number={key} />
+          <Item
+            key={i}
+            item={contentItems[key]}
+            number={key}
+          />
         ))}
       </ItemWrapper>
     </nav>
