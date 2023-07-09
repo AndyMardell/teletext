@@ -16,7 +16,7 @@ export default function Hotkeys() {
           <Link href="/sport">Sport</Link>
         </li>
         <li style={{ color: colors.yellow }}>
-          <Link href="/tv">TV Listings</Link>
+          <Link href="/">TV Listings</Link>
         </li>
         <li style={{ color: colors.lightblue }}>
           <Link href="/">A–Z Index</Link>

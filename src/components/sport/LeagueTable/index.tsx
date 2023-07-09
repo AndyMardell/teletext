@@ -2,42 +2,38 @@ import TableRow from './TableRow'
 import styled from 'styled-components'
 import moment from 'moment'
 
+type Team = {
+  id: number
+  name: string
+  logo: string
+}
+
+type Goals = {
+  for: number
+  against: number
+}
+
+type Stats = {
+  played: number
+  win: number
+  draw: number
+  lose: number
+  goals: Goals
+}
+
 export interface Standing {
   rank: number
-  team_id: number
-  teamName: string
-  logo: string
+  team: Team
   group: string
-  forme: string
+  form: string
   status: string
   description: string
-  all: {
-    matchsPlayed: number
-    win: number
-    draw: number
-    lose: number
-    goalsFor: number
-    goalsAgainst: number
-  }
-  home: {
-    matchsPlayed: number
-    win: number
-    draw: number
-    lose: number
-    goalsFor: number
-    goalsAgainst: number
-  }
-  away: {
-    matchsPlayed: number
-    win: number
-    draw: number
-    lose: number
-    goalsFor: number
-    goalsAgainst: number
-  }
+  all: Stats
+  home: Stats
+  away: Stats
   goalsDiff: number
   points: number
-  lastUpdate: string
+  update: string
 }
 
 interface Props {

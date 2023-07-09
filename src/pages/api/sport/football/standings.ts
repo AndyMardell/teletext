@@ -3,16 +3,16 @@ import { footballHeaders as headers } from '@/lib/api/headers'
 
 const getLeagueStandings = async ({ leagueId }: NextApiRequest['query']) => {
   const footballRes = await fetch(
-    `${process.env.FOOTBALL_API}/leagueTable/${leagueId}`,
+    `${process.env.FOOTBALL_API}/standings/?league=${leagueId}&season=2022`,
     { headers }
   )
-  const { api } = await footballRes.json()
+  const { response } = await footballRes.json()
 
-  if (!api.standings.length) {
+  if (!response[0].league.standings.length) {
     return null
   }
 
-  return api.standings[0]
+  return response[0].league.standings[0]
 }
 
 export default async function Standings(

@@ -3,7 +3,7 @@ import { footballHeaders as headers } from '@/lib/api/headers'
 
 const getLeague = async ({ leagueId }: NextApiRequest['query']) => {
   const footballRes = await fetch(
-    `${process.env.FOOTBALL_API}/leagues/league/${leagueId}`,
+    `${process.env.FOOTBALL_API}/leagues/?id=${leagueId}`,
     { headers }
   )
   const { api } = await footballRes.json()
