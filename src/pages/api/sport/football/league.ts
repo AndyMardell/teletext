@@ -25,11 +25,11 @@ export default async function League(
     const league = await getLeague({ leagueId })
 
     if (!league) {
-      return res.status(404).send('Not found')
+      return res.status(404).json({ message: 'Not found' })
     }
 
-    return res.status(200).json(league)
+    return res.json(league)
   } catch (err: any) {
-    res.status(500).json({ statusCode: 500, message: err.message })
+    return res.status(500).json({ statusCode: 500, message: err.message })
   }
 }

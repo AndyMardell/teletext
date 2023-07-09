@@ -23,12 +23,16 @@ export default async function Single(
     const articles = await getArticles({ slug })
 
     if (!articles) {
-      return res.status(404).send('Not found')
+      return res.status(404).json({
+        message: 'Not found'
+      })
     }
 
-    return res.status(200).json(articles)
+    return res.json(articles)
   } catch (err: any) {
-    console.error(err)
-    return res.status(500).json({ statusCode: 500, message: err.message })
+    return res.status(500).json({
+      statusCode: 500,
+      message: err.message
+    })
   }
 }

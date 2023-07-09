@@ -25,11 +25,11 @@ export default async function Standings(
     const leagueStandings = await getLeagueStandings({ leagueId })
 
     if (!leagueStandings) {
-      return res.status(404).send('Not found')
+      return res.status(404).json({ message: 'Not found' })
     }
 
-    res.status(200).json(leagueStandings)
+    return res.json(leagueStandings)
   } catch (err: any) {
-    res.status(500).json({ statusCode: 500, message: err.message })
+    return res.status(500).json({ statusCode: 500, message: err.message })
   }
 }
