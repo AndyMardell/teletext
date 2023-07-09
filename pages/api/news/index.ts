@@ -4,6 +4,8 @@ import Axios from 'axios'
 const News = async (req: NextApiRequest, res: NextApiResponse) => {
   const { q, category } = req.query
 
+  console.log(process.env.BING_API_KEY)
+  
   try {
     const newsRes = await Axios(
       `${process.env.BING_API}/news${q ? '/search' : ''}`,
